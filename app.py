@@ -47,7 +47,7 @@ def scheduled_task():
                 {
                     "user_id": "user_f3857b77-b2b9-4c1d-91f0-0f1102bca6f7",
                     "email": None,
-                    "resource_id": "reso_87b0aec2-47bd-4b63-8964-88ee3d514df9",
+                    "resource_id": "reso_14e40913-adc8-4b62-8286-97ebdf571781",
                     "team_id": None,
                     "slots": 1,
                     "start": str(twoWeeks)+"T09:00:00.000Z",
