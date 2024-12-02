@@ -39,7 +39,7 @@ def scheduled_task():
         time.sleep(1)
     
         presentday = datetime.now()
-        twoWeeks = presentday + timedelta(14)
+        twoWeeks = presentday + timedelta(13) # 13 days bcs streamlit is 1h behind
         twoWeeks = twoWeeks.date()
         conn2 = http.client.HTTPSConnection("union.gettactic.com")
         payload2 = json.dumps({
@@ -84,7 +84,7 @@ def scheduled_task():
 
 # Set up the scheduler
 scheduler = BackgroundScheduler()
-scheduler.add_job(scheduled_task, 'cron', hour=8, minute=13, second=0)  # Run daily at midnight
+scheduler.add_job(scheduled_task, 'cron', hour=23, minute=0, second=0)  # Run daily at midnight -1h bcs streamlit is 1h behind
 scheduler.start()
 
 # Display the Streamlit app
