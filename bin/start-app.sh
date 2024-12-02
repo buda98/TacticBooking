@@ -1,2 +1,2 @@
 #!/usr/bin/python3.9
-streamlit run ../app.py
+streamlit run /workspaces/TacticBooking/app.py
