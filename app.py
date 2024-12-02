@@ -81,32 +81,6 @@ def scheduled_task():
             break
         tm+=1
         time.sleep(1)
-    RestartHuggingFace()
-
-def RestartHuggingFace():
-    conn = http.client.HTTPSConnection("huggingface.co")
-    payload = 'csrf=eyJkYXRhIjp7ImV4cGlyYXRpb24iOjE3MzIwMDA5NTc4ODIsInVzZXJJZCI6IjY3MjRiYjc3N2QwMjVhZjg4Y2M5MjE5NyJ9LCJzaWduYXR1cmUiOiI4NmYxODk1Y2FhYTZjNWVmMjZjNjg2NjliOGZiOWJlNWI3Y2NkNDk5MjcyODc2YzA3ZDA2Y2VjNTdhOTEwMzNjIn0%3D'
-    headers = {
-    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-    'accept-language': 'en-US,en;q=0.9',
-    'cache-control': 'max-age=0',
-    'content-type': 'application/x-www-form-urlencoded',
-    'cookie': '__stripe_mid=b712e341-c136-4905-bfd9-caf84bf82a63c3a379; token=LTjQohvCHfyoTRZEuYzFjJdddWwecckHBQnRJyePqEXWKoIMhdjLFBraSHhVipWHuoteNWtLSxeHRhqhbllVArRHyqLbZdrvFNMCnNqwzdNIMHZVdSsjemJiRmlieiog; hf-chat=1d01b34c-a2c6-4f71-b814-0435c4ef1873; aws-waf-token=0d255567-0299-4107-a54a-554a6b893719:DgoAu9Ay81oyAgAA:whPlbky+wrxjDAEQe/k2Zcy9MvmdzUkDM9GQzIjzrJpUCduk+8B4gEOgvAsudnMXZr96Z9CMR7J4N4Jp82w0jjNuzuMA2WiEjGsdc0n0AZNAfl5PVNSu+IYhoMkh96gBPGSt+DMTTmmqcLSFREuVJzDtCukgKGllLdrWcJ0HC0AuEQ1AXPwjlieKDhsH/f34DXrON8rFqClGWey8jTixm/phQeeFRszf9dkeYvZ/wypYwSLKPykPG5eZ/l7LoMPexc1DH10=',
-    'origin': 'https://huggingface.co',
-    'priority': 'u=0, i',
-    'referer': 'https://huggingface.co/spaces/buda98/TacticBooking',
-    'sec-ch-ua': '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-platform': '"Windows"',
-    'sec-fetch-dest': 'document',
-    'sec-fetch-mode': 'navigate',
-    'sec-fetch-site': 'same-origin',
-    'sec-fetch-user': '?1',
-    'upgrade-insecure-requests': '1',
-    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36'
-    }
-    conn.request("POST", "/spaces/buda98/TacticBooking/start", payload, headers)
-    res = conn.getresponse()
 
 # Set up the scheduler
 scheduler = BackgroundScheduler()
