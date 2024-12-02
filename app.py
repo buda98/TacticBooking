@@ -84,7 +84,7 @@ def scheduled_task():
 
 # Set up the scheduler
 scheduler = BackgroundScheduler()
-scheduler.add_job(scheduled_task, 'cron', hour=9, minute=10, second=0)  # Run daily at midnight
+scheduler.add_job(scheduled_task, 'cron', hour=8, minute=13, second=0)  # Run daily at midnight
 scheduler.start()
 
 # Display the Streamlit app
