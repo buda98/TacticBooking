@@ -56,26 +56,25 @@ def scheduled_task():
             ]
         })
         headers2 = {
-            'accept': '*/*',
-            'accept-language': 'en-US,en;q=0.9',
-            'content-type': 'application/json',
-            'cookie': 'union_auth=WaSlnqTpzafZN_ewmYxmZLq2bqTf8mLDu-c6Xt3AizE; intercom-id-vvac201d=0cd8d7d7-47b8-48de-b0c4-903948961d3d; intercom-device-id-vvac201d=725fc9fc-256c-466f-8019-81afc8bd4f4f; intercom-session-vvac201d=djA5c3Q4TGZEd3YvTUVlbFpPaTl4NHYyTFZuUkRXV0FjWFdQbE42T3RSUHJiRXBwQzRMTEFvcVMveHRQc3NFeC0tb2N1ckI4cW8yNWxpVVdKTlFXeTFudz09--2b4e31b2a5c1d3d24f4881a86b32aff8b5135180',
-            'origin': 'https://rldatix.gettactic.com',
-            'priority': 'u=1, i',
-            'referer': 'https://rldatix.gettactic.com/',
-            'sec-ch-ua': '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"',
-            'sec-ch-ua-mobile': '?0',
-            'sec-ch-ua-platform': '"Windows"',
-            'sec-fetch-dest': 'empty',
-            'sec-fetch-mode': 'cors',
-            'sec-fetch-site': 'same-site',
-            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
-            'x-tactic-orgz': 'rldatix'
+        'accept': '*/*',
+        'accept-language': 'en-US,en;q=0.9',
+        'content-type': 'application/json',
+        'cookie': 'union_auth=WaSlnqTpzafZN_ewmYxmZLq2bqTf8mLDu-c6Xt3AizE; intercom-id-vvac201d=f1d479b7-70ab-4ee5-be33-58cacaeafcef; intercom-device-id-vvac201d=4ad0ea87-4113-4799-a48e-05d7ebb69245; _ga=GA1.1.1503090726.1730710166; _gcl_au=1.1.1034262983.1730710166; _hjSessionUser_3887589=eyJpZCI6IjIzNjYxODg1LTM5NmMtNTBlNi05ZDE5LWI4OWUxZDJiMjUyYiIsImNyZWF0ZWQiOjE3MzA3MTAxNjU3NzMsImV4aXN0aW5nIjp0cnVlfQ==; __hstc=29959136.404a34a4e38f1e32919593f061e4716e.1730710166951.1730710166951.1730710166951.1; hubspotutk=404a34a4e38f1e32919593f061e4716e; _ga_HXS7M5JC7C=GS1.1.1730710165.1.1.1730710308.60.0.0; intercom-session-vvac201d=N2hCR0w5MUl6MGRHVjUyYW1pUm4wTTJndDNoQmFkMTBWOE0vS3hxV0lnclErZ2RkVjdoYWl5cU85QUc0ZjZaWS0tam9RSUJReVdzQlVOREQwUTFPQTBOdz09--7fe310c71f0c2cccc568e87ac7797c0bdc8285a8; union_auth=WaSlnqTpzafZN_ewmYxmZLq2bqTf8mLDu-c6Xt3AizE',
+        'origin': 'https://rldatix.gettactic.com',
+        'priority': 'u=1, i',
+        'referer': 'https://rldatix.gettactic.com/',
+        'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-site',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+        'x-tactic-orgz': 'rldatix'
         }
         conn2.request("POST", "/api/offices/offi_afeac38d-e010-4204-8241-000e059b937d/schedules", payload2, headers2)
         res2 = conn2.getresponse()
         data2 = res2.read()
-        print("["+datetime.datetime.now()+"] "+data2.decode("utf-8"))
         print("Booking: "+str(res2.status))
         if res2.status == 201:
             break
