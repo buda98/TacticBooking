@@ -76,6 +76,7 @@ def scheduled_task():
         conn2.request("POST", "/api/offices/offi_afeac38d-e010-4204-8241-000e059b937d/schedules", payload2, headers2)
         res2 = conn2.getresponse()
         data2 = res2.read()
+        print(data2.decode("utf-8"))
         print("Booking: "+str(res2.status))
         if res2.status == 201:
             break
