@@ -4,6 +4,7 @@ import http.client
 import json
 from datetime import datetime, timedelta
 import time
+import webbrowser
 
 # Function to run daily at midnight
 def scheduled_task():
@@ -83,38 +84,13 @@ def scheduled_task():
     wakeUp()
 
 def wakeUp():
-    conn = http.client.HTTPSConnection("tacticbooking.streamlit.app")
-    payload = ''
-    headers = {
-    'accept': 'application/json, text/plain, */*',
-    'accept-language': 'en-US,en;q=0.9',
-    'content-length': '0',
-    'cookie': 'proxy-tracking-id=6x7k33zbhcq80vmcfec05o8m40ebo01u; _ga=GA1.3.1631210960.1733148346; hubspotutk=2ebe2860c6f774f9c95603673cc21170; ajs_anonymous_id=df61c67c-6566-490d-8c84-b89af499685b; streamlit_session=MTczMzM4Mjg1M3xkVGRKOFNmbnJVb3NNeGRUY2V4QlhiQnFTQ2V6QnRKdmFyTW1zYmdDWmNGbi03ekhzN1ZYc2FGTThzTF9nZThFd1FpMlhBVXFzejEzTms0S0VBNU5sUnNCMjFzSHBrNDRaV0lERzJKRGNaWE9QNDZHbldObFY2djJvUncydXdmVWpvNS11cVg5bHNXSmxSRnZNeWlnQ3ozTTk3QVlYeGlieDlWNGRJNnF6bW1zSVVjVW9UcUhGTFREd2c9PXydOFo8QCpL_QUVohCfQ3Dp0twN5apd4prnNeomjipnxg==; _gid=GA1.3.2025768986.1733382854; _dc_gtm_UA-122023594-8=1; _hp2_id.269788835=%7B%22userId%22%3A%228505112315232603%22%2C%22pageviewId%22%3A%225963822084915912%22%2C%22sessionId%22%3A%226529272965979836%22%2C%22identity%22%3Anull%2C%22trackerVersion%22%3A%224.0%22%7D; _hp2_ses_props.269788835=%7B%22ts%22%3A1733382854517%2C%22d%22%3A%22tacticbooking.streamlit.app%22%2C%22h%22%3A%22%2F%22%7D; __hstc=225580997.2ebe2860c6f774f9c95603673cc21170.1733148346681.1733267548244.1733382855123.5; __hssrc=1; __hssc=225580997.1.1733382855123; _streamlit_csrf=MTczMzM4Mjg1NXxJbE50WkRWV1JrSkdZa1phTm1NelNURmFSa3BIVTFad1lVMXVhRUpPU0ZaNllVVldhbFZVUm5KUldFMDlJZz09fHs0vW3UHHk6d7NNbLwYBfGTWHuFf91UAdseovO2UDb0; _dd_s=logs=1&id=f8b9569b-49b9-4eec-a73d-743ce8180c26&created=1733382855087&expire=1733383771615',
-    'origin': 'https://tacticbooking.streamlit.app',
-    'priority': 'u=1, i',
-    'referer': 'https://tacticbooking.streamlit.app/',
-    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-platform': '"Windows"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
-    'x-csrf-token': 'UHd2Nk9id2NiWVBrUHpmSFhVOXNIanpTSXVlbDd0bTkaEA9iHycbNRgqIl40KCABAg8LCwleDyAhMAY9Bh8sSg==',
-    'x-streamlit-machine-id': '7de11f64-a9f2-446a-867e-f3fa78e2d701',
-    'x-streamlit-targeting-key': '7de11f64-a9f2-446a-867e-f3fa78e2d701'
-    }
-    conn.request("POST", "/api/v2/app/resume", payload, headers)
-    res = conn.getresponse()
+    webbrowser.open('https://tacticbooking.streamlit.app')
 
 # Set up the scheduler
 scheduler = BackgroundScheduler()
-scheduler.add_job(scheduled_task, 'cron', hour=23, minute=0, second=0)  # Run daily at midnight -1h bcs streamlit is 1h behind
+scheduler.add_job(scheduled_task, 'cron', hour=11, minute=50, second=0)  # Run daily at midnight -1h bcs streamlit is 1h behind
 scheduler.start()
 
 # Display the Streamlit app
 st.title("Streamlit App with Scheduled Task at Midnight")
 st.write("This app runs a scheduled task every day at 00:00:00.")
-
-# Add a control to stop the scheduler if needed
-st.button("Stop scheduler", on_click=scheduler.shutdown)
