@@ -85,10 +85,11 @@ def scheduled_task():
 
 def wakeUp():
     webbrowser.open('https://tacticbooking.streamlit.app')
+    print("opened")
 
 # Set up the scheduler
 scheduler = BackgroundScheduler()
-scheduler.add_job(scheduled_task, 'cron', hour=11, minute=50, second=0)  # Run daily at midnight -1h bcs streamlit is 1h behind
+scheduler.add_job(scheduled_task, 'cron', hour=11, minute=52, second=0)  # Run daily at midnight -1h bcs streamlit is 1h behind
 scheduler.start()
 
 # Display the Streamlit app
